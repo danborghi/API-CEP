@@ -1,51 +1,51 @@
-const { all } = require('axios');
-
 const { Model, DataTypes } = require('sequelize');
 
 class Endereco extends Model {}
 
-Endereco.init({
+module.exports = (sequelize) => {
+  Endereco.init({
     Id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
     },
     Cep: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     Logradouro: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     Numero: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     Complemento: {
-        type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     Bairro: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     Cidade: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     Estado: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     MunicipioIBGE: {
-        type: DataTypes.STRING,
-        allowNull: false,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
-}, {
+  }, {
     sequelize,
     modelName: 'Endereco',
     tableName: 'enderecos',
-    timestamps: true
-});
+    timestamps: true,
+  });
 
-module.exports = Endereco;
+  return Endereco;
+};
