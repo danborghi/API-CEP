@@ -8,6 +8,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
     Cep: {
       type: DataTypes.STRING,
@@ -44,7 +45,7 @@ module.exports = (sequelize) => {
     sequelize,
     modelName: 'Endereco',
     tableName: 'enderecos',
-    timestamps: true,
+    timestamps: false,
   });
 
   return Endereco;
